@@ -1,0 +1,19 @@
+version '0.1'
+
+dependencies {
+    compile project(":days-calculator-core")
+    testCompile configurations.junit
+}
+
+jar {
+    manifest {
+        attributes(
+                "Implementation-Vendor": "Thierry Wasylczenko",
+                "Implementation-Version": version,
+                "Specification-Title": "Days calculator CLI",
+                "Specification-Vendor": "Thierry Wasylczenko",
+                "Main-Class": "io.twasyl.days.calculator.cli.CliApplication",
+                "Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' ')
+        )
+    }
+}

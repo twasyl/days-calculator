@@ -1,0 +1,16 @@
+version '0.1'
+
+dependencies {
+    testCompile configurations.junit
+}
+
+jar {
+    manifest {
+        attributes(
+                "Implementation-Vendor": "Thierry Wasylczenko",
+                "Implementation-Version": version,
+                "Specification-Title": "Days calculator core",
+                "Specification-Vendor": "Thierry Wasylczenko"
+        )
+    }
+}

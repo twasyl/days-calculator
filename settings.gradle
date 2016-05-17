@@ -1,0 +1,4 @@
+rootProject.name = 'days-calculator'
+
+include 'days-calculator-core'
+include 'days-calculator-cli'

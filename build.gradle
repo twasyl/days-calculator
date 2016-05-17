@@ -1,0 +1,37 @@
+allprojects {
+
+    repositories {
+        jcenter()
+    }
+
+    configurations {
+        junit
+    }
+
+    dependencies {
+        junit 'junit:junit:4.12'
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    group = "io.twasyl.days.calculator"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+apply plugin: 'distribution'
+
+version = '0.1'
+
+distributions {
+    main {
+        baseName = 'days-calculator'
+        contents {
+            from(project(':days-calculator-core').jar,  { into 'lib' })
+            from {project(':days-calculator-cli').jar }
+        }
+    }
+}
